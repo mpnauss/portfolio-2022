@@ -1,0 +1,131 @@
+
+/*Slide styling*/
+.design-examples-title {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 0 0 30px 7%;
+}
+.design-examples-title h2 {
+    font-family: var(--serif);  
+    font-size: 1.6em;
+    margin-right: 40px;
+}
+
+.examples-nav-item {
+    padding: 0 20px;
+    color: var(--pink-color);
+    border-right: 1px solid #fff;
+}
+
+.design-examples-title div:last-child .examples-nav-item {
+    border: none;
+}
+
+.examples-nav-item:hover {
+    color: #fff;
+    cursor: pointer;
+} 
+
+.selected-nav .examples-nav-item {
+    color: rgba(255, 255, 255, 0.8);
+}
+.unselected-nav::after {
+    transition: width 0.3s, margin 0.3s;
+    width: 0;
+    margin: 0 50%;
+    display: block;
+    content: " ";
+    height: 1px;
+    min-height:1px;
+    background: var(--trans-gradient);
+    margin-top: 20px;
+}
+.unselected-nav:hover::after {
+    width:calc(100% - 40px);
+    margin: 20px 20px;
+    
+}
+.design-examples {
+    display: flex;
+    height: 90vh;
+    width: 100%;
+    flex-direction: row;
+}
+.design-example-item {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+.design-example-text {
+    width: 40vw;
+    height: 100vh;
+}
+.image-carousel {
+    width: 60vw;
+    height: 80vh;
+    max-height: 800px;
+    overflow: hidden;
+    display: flex;
+    align-items:center;
+}
+.carousel-container {
+    width: calc(50vw - 80px);
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+    margin: 0 40px;
+}
+.image-carousel div:first-child {
+    /* margin-left:-50vw; */
+}
+.slide {
+    width: calc(50vw - 80px);
+    /* max-width:915px; */
+    /* margin-left: -50vw; */
+    transition: margin 0.3s;
+    display: none;
+}
+.slide img {
+    width:inherit;
+
+}
+
+#focused {
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+}
+#next {
+    margin-left: calc(50vw - 80px);
+    display: block;
+}
+#prev {
+    margin-left: calc(-50vw + 80px);
+    display: block;
+}
+
+.arrow {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle at bottom left, rgba(255,255,255,1) 20%, rgba(255,255,255,0.0) 75%);
+    height: 30px;
+    width:30px;
+}
+
+.arrow-inside {
+    width: 29px;
+    height: 29px;
+    float:right;
+    background: black;
+}
+
+.left-arrow {
+    transform: rotate(45deg);
+}
+
+.right-arrow {
+    transform: rotate(225deg)
+}
+
