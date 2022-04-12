@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Josefin+Sans:wght@200;300;400;700&display=swap');
+:root {
+    font-family: 'Josefin Sans', sans-serif; color: #fff;
+
+    --pink-color: #ffc8df;
+    --serif: 'Cormorant Garamond';
+    --sans-serif: 'Josefin Sans';
+    --trans-gradient: radial-gradient(circle, rgba(255,255,255,0.6) 66%, rgba(255,255,255,0) 100%);
+    
+}
+
+body {
+    background-color: #000;
+}
+
+a {
+    color: var(--pink-color);
+    text-decoration: none;
+}
+
+.full-width-mod {
+    height: 100vh;
+    max-height: 1050px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.quarter-width-mod {
+    width: 25%;
+    height: 100vh;
+}
+
+.three-quarter-width-mod {
+    width: 75%;
+    height: 100vh;
+}
