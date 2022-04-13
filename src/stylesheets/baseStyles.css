@@ -20,21 +20,20 @@ a {
 }
 
 .full-width-mod {
-    height: 100vh;
-    max-height: 1050px;
+    /* height: 100vh; */
+    /* max-height: 1050px; */
     overflow: hidden;
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
+    width: 100vw;
 }
 
-.quarter-width-mod {
-    width: 25%;
-    height: 100vh;
+@media (min-width: 1024px) {
+    .full-width-mod {
+        height: 100vh;
+    }
 }
 
-.three-quarter-width-mod {
-    width: 75%;
-    height: 100vh;
-}
+

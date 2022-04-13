@@ -1,5 +1,6 @@
-/* Hero styling */
 #site-title {
+    width: 100%;
+    padding: 10% 10% 6% 10%;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -10,52 +11,61 @@
     justify-content: center;
     font-weight: 400;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 #hero-title {
     color: #fff;
     font-family: var(--serif), serif;
     font-weight: 500;
-    font-size: 4.2rem;
+    font-size: 3.5em;
     display: block;
+    text-align: center;
 }
 #hero-subtitle {
     font-family: var(--sans-serif), sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.3em;
     font-weight: 100;
     opacity: 0.8;
-    margin-top:10px
+    margin-top:10px;
+    text-align: center;
 }
 #hero-text {
+    width: 100%;
+    padding: 0 10% 10% 10%;
     color: #ffffff;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 #hero-text-content {
-    padding: 0 60px;
     font-weight: 100;
-    max-width: 420px;
 }
-#hero-text-content h3 {
+#hero-description {
+    font-size: 1.1em;
+}
+#hero-text-content div h3 {
     text-transform: uppercase;
     margin: 40px 0 20px 0;
     font-size: 1em;
     font-weight: 300;
 }
-#hero-text-content ul {
-    list-style: none;
-    font-size:1.2em;
-    font-weight: 100;
+.tech-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-#hero-text-content ul li {
-    margin: 20px 0;
+.tech-list h3 {
+    width: 100%;
 }
-ul .icon-image {
-    display: inline-block;
-    width: 30px;
-    text-align: center;
-    margin-right: 20px;
+.tech-item {
+    width: 50%;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1.2em;
+}
+.icon-image img {
+    display: none;
+    width: 0;
 }
 .certifications {
     display: flex;
@@ -63,11 +73,12 @@ ul .icon-image {
     align-items: center;
 }
 .certifications img {
+    width: 160px;
     margin-right: 20px;
 }
 .cert-details {
     float: left;
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 300;
 }
 .cert-details span {
@@ -85,12 +96,103 @@ ul .icon-image {
     transform: scale(1.2);
     opacity: 1;
 }
-.vertical-line {
-    margin-left: 3px;;
-    min-height: 10px;
-    height: 90%;
-    width: 2px;
-    min-width:1px;
+.line {
+    margin-bottom: 8%;
+    height: 1px;
+    width: 100%;
+    min-width:100%;
     background: rgb(255,255,255);
     background: var(--trans-gradient);
  }
+@media (min-width: 390px) {
+    .tech-item {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    .icon-image {
+    display: inline-block;
+    /* width: 30px; */
+    text-align: center;
+    margin-right: 14px;
+    }
+    .icon-image img {
+        display:block;
+        width: 24px;
+    } 
+ }
+ @media (min-width: 700px) {
+    #hero-text-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .tech-list, #cert-container {
+        flex-direction: column;
+        width: 50%;
+    }
+    .certifications {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 80%;
+    }
+    .certifications img {
+        max-width: 100px;
+        margin: 0;
+    }
+    .cert-details {
+        margin-top: 20px;
+    }
+ }
+
+ @media (min-width:1024px) {
+     #hero {
+         flex-direction: row;
+     }
+     #site-title {
+         width:66vw;
+     }
+     #hero-text {
+         width: 34vw;
+         padding: 0 4vw 0 0 ;
+         flex-direction: row;
+     }
+     .line {
+         width: 1px;
+         min-width: 1px;
+         height: 90vh;
+         margin-right: 4vw;
+     }
+     #hero-text-content {
+         flex-direction: column;
+     }
+     .tech-list, #cert-container {
+         width: 100%;
+         flex-direction: row;
+     }
+     .certifications {
+         flex-direction: row;
+         align-items: center;
+         width: 100%;
+     }
+     .certifications img {
+         margin-right: 20px;
+     }
+     .cert-details {
+         margin: 0;
+     }
+ }
+ @media (min-width:1600px) {
+    #site-title {
+        width: 75%;
+    }
+    #hero-text {
+        width:25%;
+    }
+    .tech-list {
+        flex-direction: column;
+    }
+    .icon-image img {
+        width: 30px;
+    }
+}
