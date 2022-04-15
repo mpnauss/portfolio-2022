@@ -1,1 +1,3 @@
-This is a portfolio website for Margaret Farron
+
+Updating my React-based portfolio website for 2022.
+
