@@ -4,6 +4,10 @@ import { useSwipeable } from 'react-swipeable';
 const SlideShow = (props) => {
     const [focusedImg, setFocusedImg] = useState(0)
 
+    useEffect(() => {
+        setFocusedImg(0)
+    }, [props.data])    
+
         const handleSwipe = useSwipeable({
             onSwipedLeft: () => determineFocus(focusedImg +1),
             onSwipedRight: () => determineFocus(focusedImg -1)
