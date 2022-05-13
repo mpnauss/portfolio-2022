@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SlideShow from "./SlideShow";
 import { CSSTransition } from 'react-transition-group';
 
