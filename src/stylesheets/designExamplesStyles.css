@@ -106,18 +106,14 @@
 }
 .example-enter-active {
     opacity: 1;
-    transform: scale(1);
-    transition: opacity 300ms;
-}
-.example-enter-done {
-    transform: none;
+    transition: opacity 100ms;
 }
 .example-exit {
     opacity: 1;
 }
 .example-exit-active {
     opacity: 0;
-    transition: opacity 300ms
+    transition: opacity 100ms;
 }
 .example-exit-done {
     opacity: 0;
@@ -229,13 +225,13 @@
         margin: 20px 20px;
         
     }
-    .example-enter {
+    /* .example-enter {
         transform:scale(.9);
     }
     .example-enter-active {
         transform: scale(1);
         transition: transform 300ms;
-    }
+    } */
 }
 @media (min-width:1180px) {
     .design-examples-title h2 {
