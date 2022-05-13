@@ -4,7 +4,7 @@ const DesignExamplesNav = (props) => {
 
     const navMap = props.data.map((example, index) => {
         let classValue="unselected-nav"
-        if (index === props.selected) {
+        if (index === props.focusedExample) {
             classValue = "selected-nav"
         } else {
             classValue = "unselected-nav"
@@ -16,13 +16,13 @@ const DesignExamplesNav = (props) => {
             linkText=example.title
         }
         return (
-            <div key={index} className={classValue} >
+            <div key={index} className={classValue}>
                 <div className="examples-nav-item" onClick={
                     (e) => {
-                        props.transitionState(false)
-                        setTimeout(() => props.selectExample(index), props.timing)
-                        setTimeout(() => props.transitionState(true), props.timing)
-                        // setTimeout(() => props.setFocusedImg(0), props.timing/2)
+                        props.setTransition(false)
+                        // props.setFocusedExample(index)
+                        setTimeout(() => {props.setFocusedExample(index)}, 100)
+                        setTimeout(() => {props.setTransition(true)}, 100)
                     }}>{linkText}</div>
             </div>
         )

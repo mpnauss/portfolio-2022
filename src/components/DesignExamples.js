@@ -1,44 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DesignExamplesNav from './DesignExamplesNav.js';
-import DesignExampleShow from './DesignExampleShow.js';
-import { CSSTransition } from 'react-transition-group';
+import LongCarousel from './LongCarousel.js';
+import webProjects from '../data/webProjectData.js';
+
+
 
 const DesignExamples = (props) => {
-  const [focusedEx, setFocusedEx] = useState(0)
+  const [focusedExample, setFocusedExample] = useState(0)
+  const [focusedImage, setFocusedImage] = useState(0)
   const [transition, setTransition] = useState(true)
-  // const [focusedImg, setFocusedImg] = useState(0)
 
-  const transitionTime = 600
 
-  const selectExample = (index) => {
-    setFocusedEx(index)
+
+  const checkFocusExample = () => {
+    if (imagesArray[focusedImage].projectId !== focusedExample) {
+        setTransition(false)
+        setTimeout(() => {setFocusedExample(imagesArray[focusedImage].projectId)}, 100)
+        setTimeout(()=>{setTransition(true)}, 100)
+    }
+  }
+  useEffect(() => {
+      checkFocusExample();
+  }, [focusedImage])
+
+  const checkImageSelect = () => {
+    if (imagesArray[focusedImage].projectId !== focusedExample) {
+      setFocusedImage(imagesArray.find(image => image.projectId === focusedExample).id)
+    }
   }
 
-  return (
-    <>
-      <div>
-        <CSSTransition in={transition} classNames='example' timeout={transitionTime}>
-        <div className="design-examples">
-          <DesignExampleShow 
-          data={props.data[focusedEx]} 
-          focusChange={focusedEx}
-          // setFocusedImg={setFocusedImg} 
-          // focusedImg={focusedImg}
-           />
-        </div>
-        </CSSTransition>
-        
-          <DesignExamplesNav 
-          data={props.data}
-          selectExample={selectExample}
-          selected={focusedEx} 
-          transitionState={setTransition}
-          timing={transitionTime/2}
-          // setFocusedImg={setFocusedImg}
-          />
-      </div>
+  useEffect(() => {
+    checkImageSelect()
+  }, [focusedExample])
+
+  //create an array of image objects including projectId info
+  let imagesArray = []
+  let imagecount = 0
+  props.data.forEach((project, index) => {
+      project.images.forEach(image => {
+          let imageObj = {id: imagecount, 
+          projectId: index,
+          src: image.src,
+          alt: image.alt
+      }
+      imagesArray.push(imageObj)
+      imagecount++
+      })
+  })
+
+  return <>
+    <LongCarousel 
+      data={webProjects}
+      images={imagesArray}
+      focusedExample={focusedExample}
+      focusedImage={focusedImage}
+      setFocusedExample={setFocusedExample}
+      setFocusedImage={setFocusedImage}
+      transition={transition}
+      setTransition={setTransition}
+      />
+    <DesignExamplesNav 
+      data={webProjects}
+      images={imagesArray}
+      focusedExample={focusedExample}
+      focusedImage={focusedImage}
+      setFocusedExample={setFocusedExample}
+      setFocusedImage={setFocusedImage}
+      transition={transition}
+      setTransition={setTransition}
+    />
     </>
-  )
 }
 
 export default DesignExamples

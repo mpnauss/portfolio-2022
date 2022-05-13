@@ -7,8 +7,8 @@ const DesignExampleShow = (props) => {
         <div className="design-example-text"><h2>{props.data.title}</h2><p className="role-info">{props.data.role}</p><p>{props.data.body}</p></div>
         <SlideShow 
             data={props.data.images} 
-            // focusedImg={props.focusedImg} 
-            // setFocusedImg={props.setFocusedImg} 
+            focusedImg={props.focusedImg} 
+            setFocusedImg={props.setFocusedImg} 
         />
         </>
 }
