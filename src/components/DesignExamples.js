@@ -40,7 +40,7 @@ const DesignExamples = (props) => {
       project.images.forEach(image => {
           let imageObj = {id: imagecount, 
           projectId: index,
-          src: image.src,
+          filename: image.filename,
           alt: image.alt
       }
       imagesArray.push(imageObj)
